@@ -41,8 +41,8 @@
   var searchRes = null;
 
   /* Conversion Keywords */
-  var slashKey = "_slash_";
-  var spaceKey = "_space_";
+  var slashKey = "_sl_";
+  var spaceKey = "_sp_";
 
 
   //---------------------- Functions ---------------------------//
