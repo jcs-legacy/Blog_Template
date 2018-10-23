@@ -1,0 +1,94 @@
+<!--
+   - $File: index.html $
+   - $Date: 2018-09-28 21:20:40 $
+   - $Revision: $
+   - $Creator: Jen-Chieh Shen $
+   - $Notice: See LICENSE.txt for modification and distribution information
+   -                   Copyright © 2018 by Shen, Jen-Chieh $
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>[Blog Name] - Blog</title>
+  <meta charset="UTF-8"/>
+
+  <!-- jQuery -->
+  <script src="../js/jquery-3.3.1.min.js"></script>
+
+  <div id="css-lib"></div>
+
+  <script src="../js/head.js"></script>
+
+</head>
+<body>
+  <div id="script-reference-page"></div>
+
+  <header>
+    <div id="header-container" class="vis-green">
+      <a href="./index.html">
+        <div id="logo-tab" class="vis-red">
+          <span id="logo">
+            <span class="blog-name"></span>
+          </span>
+          <span id="vr-char">|</span>
+          <span id="blog-text">BLOG</span>
+        </div>
+      </a>
+
+      <a class="homepage-link" href="">HOMEPAGE_TEXT</a>
+
+      <div id="search-input-container">
+        <div id="search-input-border"></div>
+        <form >
+          <input placeholder="" type="text" value=""/>
+        </form>
+      </div>
+      <div id="search-btn"></div>
+    </div>
+
+    <div id="announcement-tab" class="vis-green">
+      <div id="announcement-text-container" class="vis-red">
+        <marquee behavior="scroll" align="middle">
+          <span class="announcement-text"></span>
+        </marquee>
+      </div>
+    </div>
+  </header>
+
+
+  <div id="content-container" class="vis-green">
+
+    <div id="scroll-bar-tab">
+      <div id="scroll-bar-container" class="vis-green">
+        <h3><div id="scroll-bar-title"></div></h3>
+        <hr id="scroll-bar-hr" />
+        <div id="index-pos">
+          <!-- NOTE(jenchieh): Scrollbar index here.. -->
+        </div>
+      </div>
+    </div>
+
+    <div id="content-wrapper">
+      <div id="content-body">
+        <div id="content"></div>
+      </div>
+
+      <hr id="content-hr" />
+
+      <div id="content-footer" class="vis-red">
+        <span class="copyright">COPYRIGHT-TEXT</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- --------------------------------------------------- -->
+
+  <!-- own JS -->
+  <script src="../js/config.js"></script>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>
