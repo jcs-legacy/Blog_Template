@@ -529,9 +529,8 @@
       showPath = showPath.replace(/.html/g, '');
 
       /* Apply conversion rule. */
-      let urlPath = pathObj.path;
-      urlPath = urlPath.replace(/\//g, '-');
-      urlPath = urlPath.replace(/.html/g, '');
+      let urlPath = showPath.replace(/\//g, slashKey);
+      urlPath = urlPath.replace(/ /g, spaceKey);
 
       /* Here to design the HTML content for search result. */
       let resultHTML =
