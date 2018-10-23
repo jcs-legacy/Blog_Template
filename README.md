@@ -47,6 +47,20 @@ to terminate the previous started server. If you are on linux distro
 with bash installed, run the same script but with `.sh` extension behind.
 
 
+## Directing to other page ##
+### Path Keyword Conversion List ###
+| Key  | Entity |
+|------|--------|
+| _sl_ | /      |
+| _sp_ |        |
+
+If you wish to direct to other page, see the code below for example. This 
+line of code will direct user to `./doc/About/More/2018-10-30 Third Post.html` page.
+```
+<!-- Here _sl_ will convert to slash. And _sp_ will convert to space. -->
+<a href="?page=About_sl_More_sl_2018-10-30_sp_Third_sp_Post">Third Post</a>
+```
+
 ## Search Engine ##
 Search engine is implemented by simply comparing the file name with keyword 
 case insensitively.
