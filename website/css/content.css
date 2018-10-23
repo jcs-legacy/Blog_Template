@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/**
+ * $File: content.css $
+ * $Date: 2018-10-02 18:46:16 $
+ * $Revision: $
+ * $Creator: Jen-Chieh Shen $
+ * $Notice: See LICENSE.txt for modification and distribution information
+ *                   Copyright © 2018 by Shen, Jen-Chieh $
+ */
+
+/* All the content CSS store here. */
+
+/********************* Code Block *****************************/
+
+.code-inline {
+  display: inline;
+  background-color: #EFF0F1;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.code-block {
+  display: block;
+  background-color: #EFF0F1;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+/********************* Horizontal Line *****************************/
+
+.con-hr {
+  opacity: 0.6;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+/********************* Table *****************************/
+
+table {
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+tr {
+  height: 30px;
+}
+
+tr:hover {
+  outline: solid #00CCCC 1px;
+}
+
+td {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+tr:nth-child(odd) {
+  background-color: #F8F8F8;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+td:nth-child(2) {
+  /* Make table grow/algin from left. */
+  width: 100%;
+}
+
+/********************* Search *****************************/
+
+#search-result-block {
+
+}
+
+.search-result-one {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

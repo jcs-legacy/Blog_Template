@@ -1,0 +1,282 @@
+@charset "UTF-8";
+/**
+ * $File: style.css $
+ * $Date: 2018-09-27 20:33:53 $
+ * $Revision: $
+ * $Creator: Jen-Chieh Shen $
+ * $Notice: See LICENSE.txt for modification and distribution information
+ *                   Copyright © 2018 by Shen, Jen-Chieh $
+ */
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 1000px;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  position: relative;
+  z-index: 30;
+  background-color: #2B4D4D;
+  width: 100%;
+  height: 100px;
+  text-decoration: none;
+}
+
+#header-container {
+  padding-left: 25px;
+  width: 95%;
+  height: 60px;
+  white-space: nowrap;
+}
+
+#logo-tab {
+  display: inline-block;
+  padding-top: 15px;
+}
+
+#logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#vr-char {
+  color: white;
+  font-size: 26px;
+}
+
+#blog-text {
+  color: white;
+  font-size: 18px;
+}
+
+#search-input-container {
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  float: right;
+  background-color: white;
+  cursor: text;
+  padding-top: calc(60px - 1px - 40px);  /* This value should be work with `height'. */
+  width: 250px;
+  height: calc(60px - 1px - 20px);  /* This value should be work with `padding-top' */
+}
+
+#search-input-border {
+  position: relative;
+  top: -24px;
+  left: -20px;
+  float: left;
+  border-top-left-radius: 100%;
+  background-color: white;
+  width: 20px;
+  height: calc(60px - 1px + 4px);
+}
+
+#search-input-container input {
+  outline: 0;
+  border: 0;
+  background: transparent;
+  overflow: auto;
+}
+
+#search-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  float: right;
+  background-image: url('../images/search_btn.png');
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+
+#announcement-tab {
+  background-color: #E6E6E6;
+  height: 40px;
+  white-space: nowrap;
+}
+
+#announcement-text-container {
+  padding: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.announcement-text {
+  font-weight: bold;
+}
+
+.homepage-link {
+  position: relative;
+  right: 230px;
+  float: right;
+  text-decoration: none;
+  color: white;
+  font-family: 'avalon', sans-serif;
+  padding-top: 20px;
+}
+
+
+#scroll-bar-tab {
+  position: absolute;
+  float: left;
+  width: 24%;
+  min-width: 24%;
+  height: 100%;
+}
+
+#scroll-bar-container {
+  border-right: solid rgba(0, 0, 0, 0.3) 1px;
+  padding: 5%;
+  min-width: 100%;
+  height : 100%;
+  overflow: auto;
+}
+
+#scroll-bar-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#scroll-bar-hr {
+  opacity: 0.6;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  width: 98%;
+}
+
+#index-pos {
+  margin-left: 0px;
+}
+
+#index-pos li {
+  padding-top: 5px;
+  margin-right: 5px;
+  padding-bottom: 5px;
+}
+
+.arrow {
+  display: inline-block;
+  margin-right: 5px;
+  background-color: #19E3B1;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  color: white;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.arrow + span {
+  cursor: pointer;
+}
+
+.arrow + span:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.sb-dir {
+  color: rgba(0, 0, 0, 0.7);
+  vertical-align: middle;
+  list-style-type: none;
+}
+
+.sb-file {
+  list-style-type: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sb-file:hover {
+  text-decoration: underline;
+  color: #000000;
+}
+
+.sb-file-selected {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: #222C37;
+  padding-left: 10px;
+  color: #FFFFFF;
+}
+
+.sb-file-selected:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/* Scrollbar Layers */
+.sb-layer-1 { margin-left: 20px; }
+.sb-layer-2 { margin-left: 20px; }
+.sb-layer-3 { margin-left: 20px; }
+.sb-layer-4 { margin-left: 20px; }
+.sb-layer-5 { margin-left: 20px; }
+.sb-layer-6 { margin-left: 20px; }
+.sb-layer-7 { margin-left: 20px; }
+.sb-layer-8 { margin-left: 20px; }
+.sb-layer-9 { margin-left: 20px; }
+
+
+#content-container {
+  position: relative;
+  margin-left: auto;
+
+  /*
+   * NOTE(jenchieh): 140px is get from all the height from different
+   * component. The header is 100px and the `scroll-bar-container'
+   * have padding of 20px, including top and bottom so is 40px
+   *
+   * Hence, 100px + 40px = 140px
+   */
+  height: calc(100% - 140px);
+}
+
+#content-header {
+
+}
+
+#content-wrapper {
+  margin-right: 3%;
+
+  /*
+   * 3% must be the same as the `margin-right' above
+   * 24% is the width of the scrollbar
+   * 40px is the scrollbar padding including left and right
+   */
+  margin-left: calc(24% + 3% + 40px);
+}
+
+#content-body {
+  width: 100%;
+  font-size: 14px;
+  padding-top: 1px;
+}
+
+#content-hr {
+  opacity: 0.6;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+#content-footer {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+}
