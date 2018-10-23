@@ -75,6 +75,7 @@ function search_blog(req, res, next) {
   let searchKeyword = data.search_keyword;
 
   /* Conversion base on the rule. */
+  // This rule must match client side.
   searchKeyword = searchKeyword.replace(/-/g, ' ');
 
 
