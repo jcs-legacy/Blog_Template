@@ -1,0 +1,20 @@
+{
+  "name": "api_reference_template",
+  "version": "1.0.0",
+  "description": "General API reference template, for all kind of API reference.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "reference",
+    "template"
+  ],
+  "author": "Jen-Chieh Shen",
+  "license": "ISC",
+  "dependencies": {
+    "directory-tree": "^2.1.0",
+    "express": "^4.16.4"
+  }
+}
