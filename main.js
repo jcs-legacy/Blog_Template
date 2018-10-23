@@ -22,6 +22,9 @@ const dirTree = require('directory-tree');
 const config = require('./config');
 
 
+/* Conversion Keywords */
+const spaceKey = "_sp_";  // Must be the same as client.
+
 
 // Setup website directory.
 app.use(express.static(config.WEBSITE_DIR));
@@ -76,7 +79,7 @@ function search_blog(req, res, next) {
 
   /* Conversion base on the rule. */
   // This rule must match client side.
-  searchKeyword = searchKeyword.replace(/-/g, ' ');
+  searchKeyword = searchKeyword.split(spaceKey).join(" ");
 
 
   let searchResults = [];
