@@ -64,4 +64,4 @@ be found in `./website/css/content.css`.
 
 
 ## Example ##
-* <a href="http://www.jcs-profile.com:4001">JenChieh's Blog</a>
+* <a href="http://www.jcs-profile.com:4001">Jen-Chieh's Blog</a>
