@@ -277,6 +277,7 @@ header {
 
 #content-footer {
   display: inline-block;
+  margin-bottom: 100px;
   vertical-align: middle;
   font-size: 13px;
 }
