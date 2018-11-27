@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "8.12"
+  - "node"  # Just install the latest node.
 
 before_install:
   - chmod a+x ./scripts/*.sh
