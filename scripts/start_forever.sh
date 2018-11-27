@@ -10,7 +10,9 @@
 
 
 # Back to root directory.
-cd ..
+if ! [[ -n "$TRAVIS" ]]; then
+    cd ..
+fi
 
 # Run the server.
 forever start main.js -o log.txt
