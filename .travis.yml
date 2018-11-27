@@ -1,0 +1,14 @@
+language: node_js
+
+node_js:
+  - "8.12"
+
+before_install:
+  - chmod a+x ./scripts/*.sh
+
+install:
+  - ./scripts/setup.sh
+
+script:
+  - ./scripts/start_forever.sh
+  - ./scripts/stop_forever.sh
