@@ -1,7 +1,8 @@
-# Blog Template #
-
 [![Build Status](https://travis-ci.com/jcs090218/Blog-Template.svg?branch=master)](https://travis-ci.com/jcs090218/Blog-Template)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+# Blog Template #
 
 * Demo: <a href="http://www.jcs-profile.com:4000">Blog_Template</a>
 
