@@ -44,6 +44,9 @@
   var slashKey = "_sl_";
   var spaceKey = "_sp_";
 
+  var obKey = "_ob_";  // oepn bracket
+  var cbKey = "_cb_";  // close bracket
+
 
   //---------------------- Functions ---------------------------//
 
@@ -77,7 +80,7 @@
     if (searchKeyword == "")
       return;
 
-    /* Conversion base on the rule. */
+    /* IMPORTANT(jenchieh): Apply conversion rule. */
     // This rule must match the server side.
     searchKeyword = searchKeyword.replace(/ /g, spaceKey);
 
@@ -291,7 +294,8 @@
       if (!isDir)
         newPath = newPath.replace(/\.[^/.]+$/, "");
 
-      newPath = newPath.replace(/ /g, spaceKey);  // space to key.
+      /* IMPORTANT(jenchieh): Apply conversion rule. */
+      newPath = applyConversionRule(newPath);
 
       let dirOrFileName = pathObj.name;
       dirOrFileName = dirOrFileName.replace(/\.[^/.]+$/, "");  // Remove extension if there is.
@@ -341,14 +345,15 @@
       if (currentContentPage == null)
         contentPageName = intro_content;
       else {
-        /* Apply conversion rule. */
-        contentPageName = currentContentPage.split(slashKey).join("/");
-        contentPageName = contentPageName.split(spaceKey).join(" ");
+        /* IMPORTANT(jenchieh): Apply conversion rule. */
+        contentPageName = applyConversionRule(currentContentPage, true);
       }
     } else {
       contentPageName = search_content;
 
-      searchKeyword = searchKeyword.split(spaceKey).join(" ");
+      /* IMPORTANT(jenchieh): Apply conversion rule. */
+      searchKeyword = applyConversionRule(searchKeyword, true);
+
       searchInput.attr('value', searchKeyword);
     }
 
@@ -533,9 +538,8 @@
       let showPath = pathObj.path;
       showPath = showPath.replace(/.html/g, '');
 
-      /* Apply conversion rule. */
-      let urlPath = showPath.replace(/\//g, slashKey);
-      urlPath = urlPath.replace(/ /g, spaceKey);
+      /* IMPORTANT(jenchieh): Apply conversion rule. */
+      let urlPath = applyConversionRule(showPath);
 
       /* Here to design the HTML content for search result. */
       let resultHTML =
@@ -547,6 +551,27 @@
 
       searchResDiv.append(resultHTML);
     }
+  }
+
+  /**
+   * Apply conversion rules.
+   * @param { string } rawStr : Unrefined string that have not apply
+   * conversion rules.
+   * @param { boolean } revert : Convert back.
+   */
+  function applyConversionRule(rawStr, revert = false) {
+    if (revert) {
+      rawStr = rawStr.split(slashKey).join("/");
+      rawStr = rawStr.split(spaceKey).join(" ");
+      rawStr = rawStr.split(obKey).join("(");
+      rawStr = rawStr.split(cbKey).join(")");
+    } else {
+      rawStr = rawStr.replace(/\//g, slashKey);
+      rawStr = rawStr.replace(/ /g, spaceKey);
+      rawStr = rawStr.replace(/\(/g, obKey);
+      rawStr = rawStr.replace(/\)/g, cbKey);
+    }
+    return rawStr;
   }
 
 
