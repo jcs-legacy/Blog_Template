@@ -94,6 +94,9 @@ function search_blog(req, res, next) {
 function getBlogTree() {
   const tree = dirTree(config.BLOG_DIR_PATH, { extensions: config.CONTENT_EXTENSION, normalizePath: true });
 
+  // Sort it.
+  sortTreeByType(tree.children);
+
   // Modefied the `BLOG_DIR_PATH' to the correct format string.
   var removePath = config.BLOG_DIR_PATH;
   removePath = removePath.replace("./", "");
@@ -150,6 +153,47 @@ function searchMatchPath(dir, match, arr) {
     // If match add it to search result.
     if (nameUpper.includes(matchUpper) && pathObj.type == 'file') {
       arr.push(pathObj);
+    }
+  }
+}
+
+/**
+ * Sort the tree result by directory/file type.
+ * @param { tree.children } tree : Tree children.
+ * @param { string } type : Sort type, enter 'directory' or 'file'.
+ */
+function sortTreeByType(tree, type = 'directory') {
+  let tarList = [];  // target list.
+  let anoList = [];  // another list.
+
+  /* Split path object into two arrays by type. */
+  {
+    for (let index = 0;
+         index < tree.length;
+         ++index)
+    {
+      let pathObj = tree[index];
+      if (pathObj.children != null && pathObj.children.length != 0) {
+        sortTreeByType(pathObj.children, type);
+      }
+
+      // Add path object by type.
+      if (pathObj.type == type)
+        tarList.push(pathObj);
+      else
+        anoList.push(pathObj);
+    }
+  }
+
+  /* Copy array over. */
+  {
+    let resultTree = tarList.concat(anoList);
+
+    for (let index = 0;
+         index < tree.length;
+         ++index)
+    {
+      tree[index] = resultTree[index];
     }
   }
 }
