@@ -20,6 +20,9 @@ const WEBSITE_DIR = "website";
 /* Paths */
 const BLOG_DIR_PATH = "./website/Blog/doc/";
 
+/* Action */
+const SORT_ORDER = 'directory';
+
 // Content extension to load.
 //
 // NOTE(jenchieh): have to be the same with 'client' side's
@@ -38,5 +41,7 @@ module.exports.PORT = PORT;
 module.exports.WEBSITE_DIR = WEBSITE_DIR;
 
 module.exports.BLOG_DIR_PATH = BLOG_DIR_PATH;
+
+module.exports.SORT_ORDER = SORT_ORDER;
 
 module.exports.CONTENT_EXTENSION = CONTENT_EXTENSION;

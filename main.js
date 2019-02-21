@@ -95,7 +95,7 @@ function getBlogTree() {
   const tree = dirTree(config.BLOG_DIR_PATH, { extensions: config.CONTENT_EXTENSION, normalizePath: true });
 
   // Sort it.
-  sortTreeByType(tree.children);
+  sortTreeByType(tree.children, config.SORT_ORDER);
 
   // Modefied the `BLOG_DIR_PATH' to the correct format string.
   var removePath = config.BLOG_DIR_PATH;
@@ -163,6 +163,9 @@ function searchMatchPath(dir, match, arr) {
  * @param { string } type : Sort type, enter 'directory' or 'file'.
  */
 function sortTreeByType(tree, type = 'directory') {
+  if (type != 'directory' && type != 'file')
+    return;
+
   let tarList = [];  // target list.
   let anoList = [];  // another list.
 
