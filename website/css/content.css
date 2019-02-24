@@ -22,6 +22,7 @@
   display: block;
   background-color: #EFF0F1;
   font-family: 'Ubuntu Mono', monospace;
+  word-wrap: break-word;
 }
 
 /********************* Horizontal Line *****************************/
