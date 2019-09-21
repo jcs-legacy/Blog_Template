@@ -419,46 +419,16 @@
       content.html(html);
 
       /* Reload possible changing variables. */
-      let manualName = $('.manual-name');
+      let manualName = $('.blog-name');
       let copyright = $('.copyright');
+      let announcement = $('.announcement-text');
       let homepageLink = $('.homepage-link');
 
-      let versionTitle01 = $('.version-title-01');
-      let versionTitle02 = $('.version-title-02');
-      let versionTitle03 = $('.version-title-03');
-      let versionTitle04 = $('.version-title-04');
-      let versionTitle05 = $('.version-title-05');
-      let versionTitle06 = $('.version-title-06');
-      let versionTitle07 = $('.version-title-07');
-
-      let versionNum01 = $('.version-num-01');
-      let versionNum02 = $('.version-num-02');
-      let versionNum03 = $('.version-num-03');
-      let versionNum04 = $('.version-num-04');
-      let versionNum05 = $('.version-num-05');
-      let versionNum06 = $('.version-num-06');
-      let versionNum07 = $('.version-num-07');
-
-      manualName.text(manual_name);
+      manualName.text(blog_name);
       copyright.text(copyright_text);
+      announcement.text(announcement_text);
       homepageLink.text(homepage_text);
       homepageLink.attr('href', homepage_url);
-
-      versionTitle01.text(version_title_01);
-      versionTitle02.text(version_title_02);
-      versionTitle03.text(version_title_03);
-      versionTitle04.text(version_title_04);
-      versionTitle05.text(version_title_05);
-      versionTitle06.text(version_title_06);
-      versionTitle07.text(version_title_07);
-
-      versionNum01.text(version_num_01);
-      versionNum02.text(version_num_02);
-      versionNum03.text(version_num_03);
-      versionNum04.text(version_num_04);
-      versionNum05.text(version_num_05);
-      versionNum06.text(version_num_06);
-      versionNum07.text(version_num_07);
 
       let searchKeyword = getUrlParameter('search');
       if (searchKeyword != null) {
