@@ -63,10 +63,10 @@
   var quoteKey   = "_qt_";   // Quote ' key.
   var exclaimKey = "_ex_";   // Exclamation mark key '!'.
 
-  var periodKey  = "_pri_";  // Period '.' key.
-  var equalKey      = "_eq_";   // Equals ' =' key.
+  var periodKey    = "_pri_";  // Period '.' key.
+  var equalKey     = "_eq_";   // Equals ' =' key.
   var commaKey     = "_cma_";  // Comma ',' key.
-  var semicolonKey      = "_sc_";   // Semicolon ';' key.
+  var semicolonKey = "_sc_";   // Semicolon ';' key.
 
 
   //---------------------- Functions ---------------------------//
@@ -87,7 +87,6 @@
   searchInput.keypress(function (e) {
     if (e.which != 13)
       return;
-
     doSearch();
   });
 
@@ -101,7 +100,7 @@
     if (searchKeyword == "")
       return;
 
-    /* IMPORTANT(jenchieh): Apply conversion rule. */
+    /* IMPORTANT: Apply conversion rule. */
     // This rule must match the server side.
     searchKeyword = searchKeyword.replace(/ /g, spaceKey);
 
@@ -227,8 +226,8 @@
         // Scroll to that file selected.
         sbContainer.animate({
           /*
-           * NOTE(jenchieh): 100 is the height from the header,
-           * and plus 10 just to offset a bit more to look better.
+           * NOTE: 100 is the height from the header, and plus 10 just
+           * to offset a bit more to look better.
            */
           scrollTop: $(this).offset().top - 110
         }, 500);
@@ -243,7 +242,6 @@
   /* Initialize the page. */
   function initPage() {
     initGlobalPage();
-
     initBlogPage();
   }
 
@@ -292,11 +290,7 @@
 
     let currentDir = "";
 
-    for (let index = 0;
-         index < dir.length;
-         ++index)
-    {
-
+    for (let index = 0; index < dir.length; ++index) {
       let pathObj = dir[index];
 
       if (pathObj.path.charAt(0) != "/")
@@ -315,7 +309,7 @@
       if (!isDir)
         newPath = newPath.replace(/\.[^/.]+$/, "");
 
-      /* IMPORTANT(jenchieh): Apply conversion rule. */
+      /* IMPORTANT: Apply conversion rule. */
       newPath = applyConversionRule(newPath);
 
       let dirOrFileName = pathObj.name;
@@ -366,13 +360,13 @@
       if (currentContentPage == null)
         contentPageName = intro_content;
       else {
-        /* IMPORTANT(jenchieh): Apply conversion rule. */
+        /* IMPORTANT: Apply conversion rule. */
         contentPageName = applyConversionRule(currentContentPage, true);
       }
     } else {
       contentPageName = search_content;
 
-      /* IMPORTANT(jenchieh): Apply conversion rule. */
+      /* IMPORTANT: Apply conversion rule. */
       searchKeyword = applyConversionRule(searchKeyword, true);
 
       searchInput.attr('value', searchKeyword);
@@ -418,95 +412,62 @@
       fullPath = "./doc/" + fullPath;
     }
 
-    content.load(
-      // NOTE(jenchieh): This allow url have spaces.
-      //
-      // TOPIC(jenchieh): jquery “load” for path contain spaces - Need help !
-      // SOURCE(jenchieh): https://stackoverflow.com/questions/3741672/jquery-load-for-path-contain-spaces-need-help
-      encodeURIComponent(fullPath),
-      // Done loading callback.
-      function () {
-        /* Reload possible changing variables. */
-        {
-          let manualName = $('.blog-name');
-          let copyright = $('.copyright');
-          let announcement = $('.announcement-text');
-          let homepageLink = $('.homepage-link');
+    jQuery.get(fullPath, function (text) {
+      showdown.setFlavor('github');
+      let converter = new showdown.Converter();
+      let html = converter.makeHtml(text);
+      content.html(html);
 
-          manualName.text(blog_name);
-          copyright.text(copyright_text);
-          announcement.text(announcement_text);
-          homepageLink.text(homepage_text);
-          homepageLink.attr('href', homepage_url);
+      /* Reload possible changing variables. */
+      let manualName = $('.manual-name');
+      let copyright = $('.copyright');
+      let homepageLink = $('.homepage-link');
 
-          let searchKeyword = getUrlParameter('search');
-          if (searchKeyword != null) {
-            let searchKeywordText = $('.search-keyword');
+      let versionTitle01 = $('.version-title-01');
+      let versionTitle02 = $('.version-title-02');
+      let versionTitle03 = $('.version-title-03');
+      let versionTitle04 = $('.version-title-04');
+      let versionTitle05 = $('.version-title-05');
+      let versionTitle06 = $('.version-title-06');
+      let versionTitle07 = $('.version-title-07');
 
-            searchKeyword = searchKeyword.split(spaceKey).join(" ");
+      let versionNum01 = $('.version-num-01');
+      let versionNum02 = $('.version-num-02');
+      let versionNum03 = $('.version-num-03');
+      let versionNum04 = $('.version-num-04');
+      let versionNum05 = $('.version-num-05');
+      let versionNum06 = $('.version-num-06');
+      let versionNum07 = $('.version-num-07');
 
-            searchKeywordText.text(searchKeyword);
+      manualName.text(manual_name);
+      copyright.text(copyright_text);
+      homepageLink.text(homepage_text);
+      homepageLink.attr('href', homepage_url);
 
-            // Try to append search result.
-            appendSearchResult();
-          }
-        }
+      versionTitle01.text(version_title_01);
+      versionTitle02.text(version_title_02);
+      versionTitle03.text(version_title_03);
+      versionTitle04.text(version_title_04);
+      versionTitle05.text(version_title_05);
+      versionTitle06.text(version_title_06);
+      versionTitle07.text(version_title_07);
 
-        /* Code block logic here.. */
-        {
-          let codeBlocks = $('.code-block');
+      versionNum01.text(version_num_01);
+      versionNum02.text(version_num_02);
+      versionNum03.text(version_num_03);
+      versionNum04.text(version_num_04);
+      versionNum05.text(version_num_05);
+      versionNum06.text(version_num_06);
+      versionNum07.text(version_num_07);
 
-          codeBlocks.each(function (index) {
-            let codeText = $(this).text();
-
-            // Add certain rules
-            codeText = codeAreaRule(codeText);
-
-            // Clean the text.
-            $(this).text("");
-
-            // Turn it into HTML.
-            $(this).html(codeText);
-          });
-        }
-
-        /* Code inline logic here.. */
-        {
-          let codeInline = $('.code-inline');
-
-          codeInline.each(function (index) {
-            let codeText = $(this).text();
-
-            // Add certain rules
-            codeText = codeAreaRule(codeText);
-
-            // Clean the text.
-            $(this).text("");
-
-            // Turn it into HTML.
-            $(this).html(codeText);
-          });
-        }
-      });
-  }
-
-  /**
-   * Convert the plain text to HTML.
-   *
-   * @param { typename } codeText : code plain text.
-   */
-  function codeAreaRule(codeText) {
-    // Replace all line break to '<br/>'.
-    codeText = codeText.replace(/(?:\r\n|\r|\n)/g, '<br/>');
-
-    // Replace all space to &nbsp.
-    codeText = codeText.replace(/\s/g, '&nbsp;');
-
-    // Add certain rules
-    codeText = codeText.replace(/-<-/g, '&lt;');
-    codeText = codeText.replace(/->-/g, '&gt;');
-
-    return codeText;
+      let searchKeyword = getUrlParameter('search');
+      if (searchKeyword != null) {
+        let searchKeywordText = $('.search-keyword');
+        searchKeyword = searchKeyword.split(spaceKey).join(" ");
+        searchKeywordText.text(searchKeyword);
+        appendSearchResult();  // Try to append search result.
+      }
+    });
   }
 
   /**
@@ -557,7 +518,7 @@
 
       // Remove extension from show path.
       let showPath = pathObj.path;
-      showPath = showPath.replace(/.html/g, '');
+      showPath = showPath.replace(/.md/g, '');
 
       /* IMPORTANT(jenchieh): Apply conversion rule. */
       let urlPath = applyConversionRule(showPath);
@@ -654,21 +615,18 @@
 /**
  * Get URL parameter.
  *
- * SOURCE(jenchieh): https://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
+ * SOURCE: https://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
  * @param { string } paramName : name of the parameter.
  */
 function getUrlParameter(paramName) {
   let sPageURL = decodeURIComponent(window.location.search.substring(1));
   let sURLVariables = sPageURL.split('&');
-
   for (let index = 0; index < sURLVariables.length; index++) {
     let sParameterName = sURLVariables[index].split('=');
-
     if (sParameterName[0] === paramName) {
       return sParameterName[1] === undefined ? true : sParameterName[1];
     }
   }
-
   return null;
 }
 

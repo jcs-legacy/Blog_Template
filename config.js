@@ -29,7 +29,7 @@ const SORT_ORDER = 'directory';
 // config file.
 //
 // SEE : ./website/js/config.js
-const CONTENT_EXTENSION = /\.html/;
+const CONTENT_EXTENSION = /\.md/;
 
 //------------------ Exports modules ------------------//
 

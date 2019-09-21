@@ -33,8 +33,8 @@ const homepage_text = "blog-tem.github";  // Text to show on the browser
 // NOTE(jenchieh): have to be the same with 'server' side's
 // config file.
 //
-// SEE : confid.js in the project root directory.
-const content_extension = '.html';
+// SEE : config.js in the project root directory.
+const content_extension = '.md';
 
 // Search Input config
 const si_blog_placeholder = "Search blog...";
