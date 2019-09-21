@@ -25,8 +25,7 @@ const SORT_ORDER = 'directory';
 
 // Content extension to load.
 //
-// NOTE(jenchieh): have to be the same with 'client' side's
-// config file.
+// NOTE: have to be the same with 'client' side's config file.
 //
 // SEE : ./website/js/config.js
 const CONTENT_EXTENSION = /\.md/;
