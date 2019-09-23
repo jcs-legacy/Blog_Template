@@ -67,7 +67,7 @@ with bash installed, run the same script but with `.sh` extension behind.
 | _sp_ |        |
 
 If you wish to direct to other page, see the code below for example. This 
-line of code will direct user to `./doc/About/More/2018-10-30 Third Post.html` page.
+line of code will direct user to `./doc/About/More/2018-10-30 Third Post.md` page.
 ```
 <!-- Here _sl_ will convert to slash. And _sp_ will convert to space. -->
 <a href="?page=About_sl_More_sl_2018-10-30_sp_Third_sp_Post">Third Post</a>
