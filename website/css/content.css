@@ -25,6 +25,15 @@
   text-decoration: none;
 }
 
+/********************* Quote *****************************/
+
+blockquote {
+  color: #6A737D;
+  border-left: 4px solid #DFE2E5;
+  margin: 0px;
+  padding-left: 10px;
+}
+
 /********************* Code Block *****************************/
 
 #content code {
