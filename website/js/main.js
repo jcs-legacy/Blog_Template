@@ -415,6 +415,7 @@
     jQuery.get(fullPath, function (text) {
       showdown.setFlavor('github');
       let converter = new showdown.Converter();
+      converter.setOption('simpleLineBreaks', false);
       let html = converter.makeHtml(text);
       content.html(html);
 
