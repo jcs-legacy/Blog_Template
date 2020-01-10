@@ -15,6 +15,10 @@
  */
 (function ($) {
 
+  /* Header */
+  var header = $('header');
+  header.css('background-color', header_color);
+
   /* Others */
   var layerNum = -1;
 
@@ -137,6 +141,8 @@
     let sbDir = $('.sb-dir');
     let arrows = $('.arrow');
     let arrowsText = $('.arrow + span');
+
+    arrows.css('background-color', arrow_color);
 
     arrows.click(function (e) {
       // Stop overlaping `li' tag's click event trigger.

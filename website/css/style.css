@@ -25,7 +25,6 @@ body {
 header {
   position: relative;
   z-index: 30;
-  background-color: #2B4D4D;
   width: 100%;
   height: 100px;
   text-decoration: none;
@@ -202,7 +201,6 @@ header {
 .arrow {
   display: inline-block;
   margin-right: 5px;
-  background-color: #19E3B1;
   cursor: pointer;
   width: 15px;
   height: 15px;
