@@ -263,6 +263,8 @@
     scrollBarTitle.text("Blog Post");
     searchInput.attr('placeholder', si_blog_placeholder);
 
+    document.title = blog_name + "'s Blog";
+
     /* Make AJAX request. */
     {
       /* Get API index. */
@@ -420,7 +422,7 @@
 
     jQuery.get(fullPath, function (text) {
       showdown.setFlavor('github');
-      let converter = new showdown.Converter();
+      let converter = new showdown.Converter({ extensions: ['codehighlight'] });
       converter.setOption('simpleLineBreaks', false);
       let html = converter.makeHtml(text);
       content.html(html);

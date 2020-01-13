@@ -40,7 +40,6 @@ blockquote {
   display: inline;
   background-color: #EFF0F1;
   font-family: 'Ubuntu Mono', monospace;
-  padding: 0.1% 0.3%;
 }
 
 #content pre {
@@ -48,7 +47,7 @@ blockquote {
   background-color: #EFF0F1;
   font-family: 'Ubuntu Mono', monospace;
   word-wrap: break-word;
-  padding: 0.5%;
+  padding: 1%;
 }
 
 /********************* Horizontal Line *****************************/
@@ -103,14 +102,4 @@ td:nth-child(2) {
 .search-result-one {
   margin-top: 5px;
   margin-bottom: 5px;
-}
-.blog-list {
-  padding: 10px;
-  padding-left: 60px;
-}
-
-/********************* Self Customization *****************************/
-
-.content-list {
-  margin-left: 30px;
 }
