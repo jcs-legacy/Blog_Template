@@ -61,6 +61,12 @@ blockquote {
 
 /********************* Table *****************************/
 
+th {
+  background-color: #A2F2DE;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 table {
   width: 100%;
   border-spacing: 0px;
