@@ -62,9 +62,16 @@ blockquote {
 /********************* Table *****************************/
 
 th {
-  background-color: #A2F2DE;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+th:nth-child(1) {
+  border-radius: 10px 0px 0px 0px;
+}
+
+th:nth-child(2) {
+  border-radius: 0px 10px 0px 0px;
 }
 
 table {
@@ -77,7 +84,7 @@ tr {
   height: 30px;
 }
 
-tr:hover {
+tbody > tr:hover {
   outline: solid #00CCCC 1px;
 }
 
