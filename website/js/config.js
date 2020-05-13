@@ -9,28 +9,28 @@
 
 "use strict";
 
-// Manual config.
+/* Manual */
 const blog_name = "[Blog Name]";
 
-// Theme
+/* Theme */
 const header_color = '#2B4D4D';
-const arrow_color = '#19E3B1';
-const th_color = '#A2F2DE';
+const arrow_color  = '#19E3B1';
+const th_show      = true;       // table header
+const th_color     = '#A2F2DE';  // table header color
 
-// Announcement
+/* Announcement */
 const announcement_text = "Welcome to [Blog Name]'s Blog!!!~~~";
 
-// Copyright text to show on the website.
+/* Copyright */
 const copyright_text = "Copyright © [yyyy] [Group Name]. Built: [yyyy-mm-dd].";
 
-// Default content page.
-const intro_content = 'intro';
-// Search page.
-const search_content = 'search';
+/* Others */
+const intro_content  = 'intro';   // Default content page.
+const search_content = 'search';  // Search page.
 
-// Homepage Link
-const homepage_url = "https://github.com/jcs090218/Blog-Template";  // The actual link to your homepage.
-const homepage_text = "blog-tem.github";  // Text to show on the browser
+/* Homepage Link */
+const homepage_url  = "https://github.com/jcs090218/Blog-Template";  // Link to your homepage.
+const homepage_text = "blog-tem.github";                             // Text represent your homepage.
 
 
 // Content extension to load.
@@ -40,7 +40,7 @@ const homepage_text = "blog-tem.github";  // Text to show on the browser
 // SEE : config.js in the project root directory.
 const content_extension = '.md';
 
-// Search Input config
+/* Search Input Text */
 const si_blog_placeholder = "Search blog...";
 
 const si_input_size = 17;  // character unit.

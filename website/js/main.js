@@ -587,6 +587,11 @@
 
     let th = $('th');
     th.css('background-color', th_color);
+
+    if (th_show == false) {
+      let thead = $('thead');
+      thead.css('display', 'none');
+    }
   }
 
   /**
