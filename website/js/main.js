@@ -14,11 +14,6 @@
  * jQuery entry.
  */
 (function ($) {
-
-  /* Header */
-  var header = $('header');
-  header.css('background-color', header_color);
-
   /* Others */
   var layerNum = -1;
 
@@ -46,7 +41,7 @@
 
   /* Conversion Keywords */
   var slashKey = "_sl_";
-  var spaceKey = "_sp_";
+  var spaceKey = "_sp_";  // Must be the same as server.
 
   var obKey      = "_ob_";   // open bracket '('.
   var cbKey      = "_cb_";   // close bracket ')'.
@@ -141,8 +136,6 @@
     let sbDir = $('.sb-dir');
     let arrows = $('.arrow');
     let arrowsText = $('.arrow + span');
-
-    arrows.css('background-color', arrow_color);
 
     arrows.click(function (e) {
       // Stop overlaping `li' tag's click event trigger.
@@ -265,26 +258,31 @@
 
     document.title = blog_name + "'s Blog";
 
-    /* Make AJAX request. */
-    {
-      /* Get API index. */
-      $.ajax({
-        url: '../../blog_index_data',
-        type: 'GET',
-        contentType: "application/json",
-        success : function (data) {
-          let dir = JSON.parse(data);
+    /* Get API index. */
+    $.ajax({
+      url: '../../blog_index_data',
+      type: 'GET',
+      contentType: "application/json",
+      success : requestSuccess,
+      error : requestError,
+    });
+  }
 
-          createIndexWithDir(dir.children, indexPos);
+  /* When successfully get the data from the server. */
+  function requestSuccess(data) {
+    let dir = JSON.parse(data);
 
-          addSBDirButtonEvent();
-          addSBFileButtonEvent();
-        },
-        error : function (e) {
-          console.log(e.message);
-        }
-      });
-    }
+    createIndexWithDir(dir.children, indexPos);
+
+    addSBDirButtonEvent();
+    addSBFileButtonEvent();
+
+    applyTheme();
+  }
+
+  /* Error handling when request failed. */
+  function requestError(e) {
+    console.log(e.message);
   }
 
   /* Create index with directory. */
@@ -479,27 +477,25 @@
    * Apply search result visual client.
    */
   function appendSearchResult() {
-    let searchResDiv = $('#search-result-block');
-
-    // Check is the HTML page loaded?
-    if (searchResDiv == null ||
-        // Check if the data come in?
-        searchRes == null)
-    {
+    if (searchRes == null) {  // Check if the data come in?
+      console.log("Missing search result...");
       return;
     }
 
-    for (let index = 0;
-         index < searchRes.length;
-         ++index)
-    {
+    let searchResDiv = $('#search-result-block');
+    if (searchResDiv == null) {  // Check is the HTML page loaded?
+      console.log("Page not loaded for search result...");
+      return;
+    }
+
+    for (let index = 0; index < searchRes.length; ++index) {
       let pathObj = searchRes[index];
 
       // Remove extension from show path.
       let showPath = pathObj.path;
       showPath = showPath.replace(/.md/g, '');
 
-      /* IMPORTANT(jenchieh): Apply conversion rule. */
+      /* IMPORTANT: Apply conversion rule. */
       let urlPath = applyConversionRule(showPath);
 
       /* Here to design the HTML content for search result. */
@@ -579,6 +575,19 @@
     return rawStr;
   }
 
+  /**
+   * Apply customizable color.
+   */
+  function applyTheme() {
+    let header = $('header');
+    header.css('background-color', header_color);
+
+    let arrows = $('.arrow');
+    arrows.css('background-color', arrow_color);
+
+    let th = $('th');
+    th.css('background-color', th_color);
+  }
 
   /**
    * jQuery program entry.
@@ -600,7 +609,7 @@
 function getUrlParameter(paramName) {
   let sPageURL = decodeURIComponent(window.location.search.substring(1));
   let sURLVariables = sPageURL.split('&');
-  for (let index = 0; index < sURLVariables.length; index++) {
+  for (let index = 0; index < sURLVariables.length; ++index) {
     let sParameterName = sURLVariables[index].split('=');
     if (sParameterName[0] === paramName) {
       return sParameterName[1] === undefined ? true : sParameterName[1];
