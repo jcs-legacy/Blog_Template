@@ -408,9 +408,7 @@
           // Try to append search result.
           appendSearchResult();
         },
-        error : function (e) {
-          console.log(e.message);
-        }
+        error : requestError,
       });
     }
     // Else we load either blog page.
@@ -444,6 +442,8 @@
         searchKeywordText.text(searchKeyword);
         appendSearchResult();  // Try to append search result.
       }
+
+      applyTheme();
     });
   }
 
