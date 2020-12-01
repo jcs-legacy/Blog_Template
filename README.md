@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.com/jcs090218/Blog-Template.svg?branch=master)](https://travis-ci.com/jcs090218/Blog-Template)
-[![Release Tag](https://img.shields.io/github/tag/jcs090218/Blog-Template.svg?label=release)](https://github.com/jcs090218/Blog-Template/releases/latest)
+[![Build Status](https://travis-ci.com/jcs090218/Blog_Template.svg?branch=master)](https://travis-ci.com/jcs090218/Blog_Template)
+[![Release Tag](https://img.shields.io/github/tag/jcs090218/Blog_Template.svg?label=release)](https://github.com/jcs090218/Blog_Template/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Blog Template
