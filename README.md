@@ -1,8 +1,9 @@
-[![Build Status](https://travis-ci.com/jcs090218/Blog_Template.svg?branch=master)](https://travis-ci.com/jcs090218/Blog_Template)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Release Tag](https://img.shields.io/github/tag/jcs090218/Blog_Template.svg?label=release)](https://github.com/jcs090218/Blog_Template/releases/latest)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Blog Template
+
+[![Build Status](https://travis-ci.com/jcs090218/Blog_Template.svg?branch=master)](https://travis-ci.com/jcs090218/Blog_Template)
 
 * Demo: [Blog_Template](http://www.jcs-profile.com:4000)
 
